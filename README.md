@@ -12,5 +12,7 @@ Change the first line from package com.ujvervueriuv.gbrvfgurweuvn; to package an
 
 Click on commit button and after few minutes you will get extension in actions tab of your repository(Last Commit).
 
+Also drag the default AdmobInterstital Component so that this extension works properly.
+
 ![Actions](actions.PNG)
 ![Build](build.PNG)
