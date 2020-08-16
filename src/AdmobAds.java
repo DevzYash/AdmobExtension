@@ -1,4 +1,4 @@
-package package com.ujvervueriuv.gbrvfgurweuvn;; 
+package com.ujvervueriuv.gbrvfgurweuvn;; 
  
 import android.app.Activity; 
 import android.content.Context; 
