@@ -91,7 +91,7 @@ public class AdmobAds extends AndroidViewComponent {
         public void onAdFailedToLoad(int error) { 
             Log.d("AdMobListener", "onAdFailedToLoad: " + getErrorReason(error)); 
             adFailedToLoadMessage = getErrorReason(error); 
-            InterstitialAdFailedToLoad(error + gads.LOG_TAG, getErrorReason(error)); 
+            InterstitialAdFailedToLoad(error + LOG_TAG, getErrorReason(error)); 
         } 
  
         public void onAdLeftApplication() { 
