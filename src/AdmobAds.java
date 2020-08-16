@@ -80,421 +80,421 @@ public class AdmobAds extends AndroidViewComponent {
         private Context mContext; 
  
         public GooglePage(Context arg2) { 
-            this.mContext = arg2; 
+            mContext = arg2; 
         } 
  
         public void onAdClosed() { 
             Log.d("AdMobListener", "onAdClosed"); 
-            this.InterstitialAdClosed(); 
+            InterstitialAdClosed(); 
         } 
  
         public void onAdFailedToLoad(int error) { 
-            Log.d("AdMobListener", "onAdFailedToLoad: " + this.getErrorReason(error)); 
-            this.adFailedToLoadMessage = this.getErrorReason(error); 
-            this.InterstitialAdFailedToLoad(error + gads.LOG_TAG, this.getErrorReason(error)); 
+            Log.d("AdMobListener", "onAdFailedToLoad: " + getErrorReason(error)); 
+            adFailedToLoadMessage = getErrorReason(error); 
+            InterstitialAdFailedToLoad(error + gads.LOG_TAG, getErrorReason(error)); 
         } 
  
         public void onAdLeftApplication() { 
-            this.InterstitialAdLeftApplication(); 
+            InterstitialAdLeftApplication(); 
         } 
  
         public void onAdLoaded() { 
             Log.d("AdMobListener", "onAdLoaded"); 
-            this.InterstitialAdLoaded(); 
+            InterstitialAdLoaded(); 
         } 
  
         public void onAdOpened() { 
             Log.d("AdMobListener", "onAdOpened"); 
-            this.InterstitialAdOpened(); 
+            InterstitialAdOpened(); 
         } 
  
         public void onAdClicked() { 
             Log.d("AdMobListener", "onAdClicked"); 
-            this.InterstitialAdClicked(); 
+            InterstitialAdClicked(); 
         } 
     } 
  
     public AdmobAds(ComponentContainer container) { 
         super(container.$form()); 
-        this.activity = container.$context(); 
-        this.context = container.$context(); 
-        this.b = container.$context(); 
+        activity = container.$context(); 
+        context = container.$context(); 
+        b = container.$context(); 
         this.container = container; 
-        if (this.form instanceof ReplForm) { 
-            this.isRepl = true; 
+        if (form instanceof ReplForm) { 
+            isRepl = true; 
         } 
-        this.context = container.$context(); 
+        context = container.$context(); 
         Log.d(LOG_TAG, "gads"); 
-        this.Acty = (Activity) this.context; 
+        Acty = (Activity) context; 
     } 
  
     public View getView() { 
-        return this.view; 
+        return view; 
     } 
  
     @SimpleFunction 
     public void LoadBannerAd(String adUnitId, AndroidViewComponent container) { 
-            this.x++; 
+            x++; 
             ViewGroup viewGroup; 
-            if (this.x % 30 == 0) { 
-                this.adView = new AdView(this.activity); 
-                this.adView.setAdSize(AdSize.BANNER); 
-                this.adView.setAdUnitId(this.adsUnitIdBanner); 
-                this.adView.setAdListener(new AdListener() { 
+            if (x % 30 == 0) { 
+                adView = new AdView(activity); 
+                adView.setAdSize(AdSize.BANNER); 
+                adView.setAdUnitId(adsUnitIdBanner); 
+                adView.setAdListener(new AdListener() { 
                     public void onAdLoaded() { 
-                        this.BannerAdLoaded(); 
+                        BannerAdLoaded(); 
                     } 
  
                     public void onAdFailedToLoad(int errorCode) { 
-                        this.BannerAdFailedToLoad(errorCode); 
+                        BannerAdFailedToLoad(errorCode); 
                     } 
  
                     public void onAdOpened() { 
-                        this.BannerAdOpened(); 
+                        BannerAdOpened(); 
                     } 
  
                     public void onAdClicked() { 
-                        this.BannerAdClicked(); 
+                        BannerAdClicked(); 
                     } 
  
                     public void onAdLeftApplication() { 
-                        this.BannerAdLeftApplication(); 
+                        BannerAdLeftApplication(); 
                     } 
  
                     public void onAdClosed() { 
-                        this.BannerAdClosed(); 
+                        BannerAdClosed(); 
                     } 
                 }); 
-                this.adRequest = new Builder().build(); 
+                adRequest = new Builder().build(); 
                 viewGroup = (ViewGroup) container.getView(); 
-                if (this.adView.getParent() != null) { 
-                    viewGroup.removeView(this.adView); 
+                if (adView.getParent() != null) { 
+                    viewGroup.removeView(adView); 
                 } 
-                viewGroup.addView(this.adView, 0, new LayoutParams(-1, -2)); 
-                this.adView.loadAd(this.adRequest); 
+                viewGroup.addView(adView, 0, new LayoutParams(-1, -2)); 
+                adView.loadAd(adRequest); 
                 return; 
             } 
-            this.adView = new AdView(this.activity); 
-            this.adView.setAdSize(AdSize.BANNER); 
-            this.adView.setAdUnitId(adUnitId); 
-            this.adView.setAdListener(new AdListener() { 
+            adView = new AdView(activity); 
+            adView.setAdSize(AdSize.BANNER); 
+            adView.setAdUnitId(adUnitId); 
+            adView.setAdListener(new AdListener() { 
                 public void onAdLoaded() { 
-                    this.BannerAdLoaded(); 
+                    BannerAdLoaded(); 
                 } 
  
                 public void onAdFailedToLoad(int errorCode) { 
-                    this.BannerAdFailedToLoad(errorCode); 
+                    BannerAdFailedToLoad(errorCode); 
                 } 
  
                 public void onAdOpened() { 
-                    this.BannerAdOpened(); 
+                    BannerAdOpened(); 
                 } 
  
                 public void onAdClicked() { 
-                    this.BannerAdClicked(); 
+                    BannerAdClicked(); 
                 } 
  
                 public void onAdLeftApplication() { 
-                    this.BannerAdLeftApplication(); 
+                    BannerAdLeftApplication(); 
                 } 
  
                 public void onAdClosed() { 
-                    this.BannerAdClosed(); 
+                    BannerAdClosed(); 
                 } 
             }); 
-            this.adRequest = new Builder().build(); 
+            adRequest = new Builder().build(); 
             viewGroup = (ViewGroup) container.getView(); 
-            if (this.adView.getParent() != null) { 
-                viewGroup.removeView(this.adView); 
+            if (adView.getParent() != null) { 
+                viewGroup.removeView(adView); 
             } 
-            viewGroup.addView(this.adView, 0, new LayoutParams(-1, -2)); 
-            this.adView.loadAd(this.adRequest); 
+            viewGroup.addView(adView, 0, new LayoutParams(-1, -2)); 
+            adView.loadAd(adRequest); 
     } 
  
     @SimpleFunction(description = "Loads A Banner Ad of Size 320x100") 
     public void LoadLargeBannerAd(String adUnitId, AndroidViewComponent container) { 
-            this.x++; 
+            x++; 
             ViewGroup viewGroup; 
-            if (this.x % 30 == 0) { 
-                this.adView = new AdView(this.activity); 
-                this.adView.setAdSize(AdSize.LARGE_BANNER); 
-                this.adView.setAdUnitId(this.adsUnitIdBanner); 
-                this.adView.setAdListener(new AdListener() { 
+            if (x % 30 == 0) { 
+                adView = new AdView(activity); 
+                adView.setAdSize(AdSize.LARGE_BANNER); 
+                adView.setAdUnitId(adsUnitIdBanner); 
+                adView.setAdListener(new AdListener() { 
                     public void onAdLoaded() { 
-                        this.BannerAdLoaded(); 
+                        BannerAdLoaded(); 
                     } 
  
                     public void onAdFailedToLoad(int errorCode) { 
-                        this.BannerAdFailedToLoad(errorCode); 
+                        BannerAdFailedToLoad(errorCode); 
                     } 
  
                     public void onAdOpened() { 
-                        this.BannerAdOpened(); 
+                        BannerAdOpened(); 
                     } 
  
                     public void onAdClicked() { 
-                        this.BannerAdClicked(); 
+                        BannerAdClicked(); 
                     } 
  
                     public void onAdLeftApplication() { 
-                        this.BannerAdLeftApplication(); 
+                        BannerAdLeftApplication(); 
                     } 
  
                     public void onAdClosed() { 
-                        this.BannerAdClosed(); 
+                        BannerAdClosed(); 
                     } 
                 }); 
-                this.adRequest = new Builder().build(); 
+                adRequest = new Builder().build(); 
                 viewGroup = (ViewGroup) container.getView(); 
-                if (this.adView.getParent() != null) { 
-                    viewGroup.removeView(this.adView); 
+                if (adView.getParent() != null) { 
+                    viewGroup.removeView(adView); 
                 } 
-                viewGroup.addView(this.adView, 0, new LayoutParams(-1, -2)); 
-                this.adView.loadAd(this.adRequest); 
+                viewGroup.addView(adView, 0, new LayoutParams(-1, -2)); 
+                adView.loadAd(adRequest); 
                 return; 
             } 
-            this.adView = new AdView(this.activity); 
-            this.adView.setAdSize(AdSize.LARGE_BANNER); 
-            this.adView.setAdUnitId(adUnitId); 
-            this.adView.setAdListener(new AdListener() { 
+            adView = new AdView(activity); 
+            adView.setAdSize(AdSize.LARGE_BANNER); 
+            adView.setAdUnitId(adUnitId); 
+            adView.setAdListener(new AdListener() { 
                 public void onAdLoaded() { 
-                    this.BannerAdLoaded(); 
+                    BannerAdLoaded(); 
                 } 
  
                 public void onAdFailedToLoad(int errorCode) { 
-                    this.BannerAdFailedToLoad(errorCode); 
+                    BannerAdFailedToLoad(errorCode); 
                 } 
  
                 public void onAdOpened() { 
-                    this.BannerAdOpened(); 
+                    BannerAdOpened(); 
                 } 
  
                 public void onAdClicked() { 
-                    this.BannerAdClicked(); 
+                    BannerAdClicked(); 
                 } 
  
                 public void onAdLeftApplication() { 
-                    this.BannerAdLeftApplication(); 
+                    BannerAdLeftApplication(); 
                 } 
  
                 public void onAdClosed() { 
-                    this.BannerAdClosed(); 
+                    BannerAdClosed(); 
                 } 
             }); 
-            this.adRequest = new Builder().build(); 
+            adRequest = new Builder().build(); 
             viewGroup = (ViewGroup) container.getView(); 
-            if (this.adView.getParent() != null) { 
-                viewGroup.removeView(this.adView); 
+            if (adView.getParent() != null) { 
+                viewGroup.removeView(adView); 
             } 
-            viewGroup.addView(this.adView, 0, new LayoutParams(-1, -2)); 
-            this.adView.loadAd(this.adRequest); 
+            viewGroup.addView(adView, 0, new LayoutParams(-1, -2)); 
+            adView.loadAd(adRequest); 
     } 
  
     @SimpleFunction(description = "Loads A Banner Ad of Size 300x250") 
     public void LoadMediumRectangleBannerAd(String adUnitId, AndroidViewComponent container) { 
-            this.x++; 
+            x++; 
             ViewGroup viewGroup; 
-            if (this.x % 30 == 0) { 
-                this.adView = new AdView(this.activity); 
-                this.adView.setAdSize(AdSize.MEDIUM_RECTANGLE); 
-                this.adView.setAdUnitId(this.adsUnitIdBanner); 
-                this.adView.setAdListener(new AdListener() { 
+            if (x % 30 == 0) { 
+                adView = new AdView(activity); 
+                adView.setAdSize(AdSize.MEDIUM_RECTANGLE); 
+                adView.setAdUnitId(adsUnitIdBanner); 
+                adView.setAdListener(new AdListener() { 
                     public void onAdLoaded() { 
-                        this.BannerAdLoaded(); 
+                        BannerAdLoaded(); 
                     } 
  
                     public void onAdFailedToLoad(int errorCode) { 
-                        this.BannerAdFailedToLoad(errorCode); 
+                        BannerAdFailedToLoad(errorCode); 
                     } 
  
                     public void onAdOpened() { 
-                        this.BannerAdOpened(); 
+                        BannerAdOpened(); 
                     } 
  
                     public void onAdClicked() { 
-                        this.BannerAdClicked(); 
+                        BannerAdClicked(); 
                     } 
  
                     public void onAdLeftApplication() { 
-                        this.BannerAdLeftApplication(); 
+                        BannerAdLeftApplication(); 
                     } 
  
                     public void onAdClosed() { 
-                        this.BannerAdClosed(); 
+                        BannerAdClosed(); 
                     } 
                 }); 
-                this.adRequest = new Builder().build(); 
+                adRequest = new Builder().build(); 
                 viewGroup = (ViewGroup) container.getView(); 
-                if (this.adView.getParent() != null) { 
-                    viewGroup.removeView(this.adView); 
+                if (adView.getParent() != null) { 
+                    viewGroup.removeView(adView); 
                 } 
-                viewGroup.addView(this.adView, 0, new LayoutParams(-1, -2)); 
-                this.adView.loadAd(this.adRequest); 
+                viewGroup.addView(adView, 0, new LayoutParams(-1, -2)); 
+                adView.loadAd(adRequest); 
                 return; 
             } 
-            this.adView = new AdView(this.activity); 
-            this.adView.setAdSize(AdSize.MEDIUM_RECTANGLE); 
-            this.adView.setAdUnitId(adUnitId); 
-            this.adView.setAdListener(new AdListener() { 
+            adView = new AdView(activity); 
+            adView.setAdSize(AdSize.MEDIUM_RECTANGLE); 
+            adView.setAdUnitId(adUnitId); 
+            adView.setAdListener(new AdListener() { 
                 public void onAdLoaded() { 
-                    this.BannerAdLoaded(); 
+                    BannerAdLoaded(); 
                 } 
  
                 public void onAdFailedToLoad(int errorCode) { 
-                    this.BannerAdFailedToLoad(errorCode); 
+                    BannerAdFailedToLoad(errorCode); 
                 } 
  
                 public void onAdOpened() { 
-                    this.BannerAdOpened(); 
+                    BannerAdOpened(); 
                 } 
  
                 public void onAdClicked() { 
-                    this.BannerAdClicked(); 
+                    BannerAdClicked(); 
                 } 
  
                 public void onAdLeftApplication() { 
-                    this.BannerAdLeftApplication(); 
+                    BannerAdLeftApplication(); 
                 } 
  
                 public void onAdClosed() { 
-                    this.BannerAdClosed(); 
+                    BannerAdClosed(); 
                 } 
             }); 
-            this.adRequest = new Builder().build(); 
+            adRequest = new Builder().build(); 
             viewGroup = (ViewGroup) container.getView(); 
-            if (this.adView.getParent() != null) { 
-                viewGroup.removeView(this.adView); 
+            if (adView.getParent() != null) { 
+                viewGroup.removeView(adView); 
             } 
-            viewGroup.addView(this.adView, 0, new LayoutParams(-1, -2)); 
-            this.adView.loadAd(this.adRequest); 
+            viewGroup.addView(adView, 0, new LayoutParams(-1, -2)); 
+            adView.loadAd(adRequest); 
     } 
  
     @SimpleFunction(description = "Loads A Banner Ad SMART_BANNER") 
     public void LoadSmartBannerAd(String adUnitId, AndroidViewComponent container) { 
-            this.x++; 
+            x++; 
             ViewGroup viewGroup; 
-            if (this.x % 30 == 0) { 
-                this.adView = new AdView(this.activity); 
-                this.adView.setAdSize(AdSize.SMART_BANNER); 
-                this.adView.setAdUnitId(this.adsUnitIdBanner); 
-                this.adView.setAdListener(new AdListener() { 
+            if (x % 30 == 0) { 
+                adView = new AdView(activity); 
+                adView.setAdSize(AdSize.SMART_BANNER); 
+                adView.setAdUnitId(adsUnitIdBanner); 
+                adView.setAdListener(new AdListener() { 
                     public void onAdLoaded() { 
-                        this.BannerAdLoaded(); 
+                        BannerAdLoaded(); 
                     } 
  
                     public void onAdFailedToLoad(int errorCode) { 
-                        this.BannerAdFailedToLoad(errorCode); 
+                        BannerAdFailedToLoad(errorCode); 
                     } 
  
                     public void onAdOpened() { 
-                        this.BannerAdOpened(); 
+                        BannerAdOpened(); 
                     } 
  
                     public void onAdClicked() { 
-                        this.BannerAdClicked(); 
+                        BannerAdClicked(); 
                     } 
  
                     public void onAdLeftApplication() { 
-                        this.BannerAdLeftApplication(); 
+                        BannerAdLeftApplication(); 
                     } 
  
                     public void onAdClosed() { 
-                        this.BannerAdClosed(); 
+                        BannerAdClosed(); 
                     } 
                 }); 
-                this.adRequest = new Builder().build(); 
+                adRequest = new Builder().build(); 
                 viewGroup = (ViewGroup) container.getView(); 
-                if (this.adView.getParent() != null) { 
-                    viewGroup.removeView(this.adView); 
+                if (adView.getParent() != null) { 
+                    viewGroup.removeView(adView); 
                 } 
-                viewGroup.addView(this.adView, 0, new LayoutParams(-1, -2)); 
-                this.adView.loadAd(this.adRequest); 
+                viewGroup.addView(adView, 0, new LayoutParams(-1, -2)); 
+                adView.loadAd(adRequest); 
                 return; 
             } 
-            this.adView = new AdView(this.activity); 
-            this.adView.setAdSize(AdSize.SMART_BANNER); 
-            this.adView.setAdUnitId(adUnitId); 
-            this.adView.setAdListener(new AdListener() { 
+            adView = new AdView(activity); 
+            adView.setAdSize(AdSize.SMART_BANNER); 
+            adView.setAdUnitId(adUnitId); 
+            adView.setAdListener(new AdListener() { 
                 public void onAdLoaded() { 
-                    this.BannerAdLoaded(); 
+                    BannerAdLoaded(); 
                 } 
  
                 public void onAdFailedToLoad(int errorCode) { 
-                    this.BannerAdFailedToLoad(errorCode); 
+                    BannerAdFailedToLoad(errorCode); 
                 } 
  
                 public void onAdOpened() { 
-                    this.BannerAdOpened(); 
+                    BannerAdOpened(); 
                 } 
  
                 public void onAdClicked() { 
-                    this.BannerAdClicked(); 
+                    BannerAdClicked(); 
                 } 
  
                 public void onAdLeftApplication() { 
-                    this.BannerAdLeftApplication(); 
+                    BannerAdLeftApplication(); 
                 } 
  
                 public void onAdClosed() { 
-                    this.BannerAdClosed(); 
+                    BannerAdClosed(); 
                 } 
             }); 
-            this.adRequest = new Builder().build(); 
+            adRequest = new Builder().build(); 
             viewGroup = (ViewGroup) container.getView(); 
-            if (this.adView.getParent() != null) { 
-                viewGroup.removeView(this.adView); 
+            if (adView.getParent() != null) { 
+                viewGroup.removeView(adView); 
             } 
-            viewGroup.addView(this.adView, 0, new LayoutParams(-1, -2)); 
-            this.adView.loadAd(this.adRequest); 
+            viewGroup.addView(adView, 0, new LayoutParams(-1, -2)); 
+            adView.loadAd(adRequest); 
     }
  
     @DesignerProperty(defaultValue = "False", editorType = "boolean") 
     @SimpleProperty 
     public void testMode(boolean testMode) { 
-        this.testMode = testMode; 
+        testMode = testMode; 
     } 
  
     @SimpleProperty(category = PropertyCategory.BEHAVIOR, description = "Ad in test mode") 
     public boolean testMode() { 
-        return this.testMode; 
+        return testMode; 
     } 
  
     @SimpleProperty(category = PropertyCategory.BEHAVIOR, description = "Interstitial Test Unit Id") 
     public String InterstitialAdTestUnitId() { 
-        return this.InterstitialAdTestUnitId; 
+        return InterstitialAdTestUnitId; 
     } 
  
     @SimpleProperty(category = PropertyCategory.BEHAVIOR, description = "Banner Test Unit Id") 
     public String BannerAdTestUnitId() { 
-        return this.BannerAdTestUnitId; 
+        return BannerAdTestUnitId; 
     } 
  
     @SimpleProperty(category = PropertyCategory.BEHAVIOR, description = "Rewarded Test Unit Id") 
     public String RewardedAdTestUnitId() { 
-        return this.RewardedAdTestUnitId; 
+        return RewardedAdTestUnitId; 
     } 
  
     @SimpleFunction 
     public void LoadInterstitialAd(String adUnitId) { 
-            this.s++; 
+            s++; 
             Builder builder; 
-            if (this.s % 30 == 0) { 
-                this.mInterstitialAd = new InterstitialAd(this.container.$context()); 
-                this.mInterstitialAd.setAdListener(new GooglePage(this.container.$context())); 
+            if (s % 30 == 0) { 
+                mInterstitialAd = new InterstitialAd(container.$context()); 
+                mInterstitialAd.setAdListener(new GooglePage(container.$context())); 
                 builder = new Builder(); 
-                if (!this.mInterstitialAd.isLoaded()) { 
-                    this.mInterstitialAd.setAdUnitId(this.adsUnitIdInterstitial); 
-                    this.mInterstitialAd.loadAd(new Builder().build()); 
+                if (!mInterstitialAd.isLoaded()) { 
+                    mInterstitialAd.setAdUnitId(adsUnitIdInterstitial); 
+                    mInterstitialAd.loadAd(new Builder().build()); 
                     return; 
                 } 
                 return; 
             } 
-            this.mInterstitialAd = new InterstitialAd(this.container.$context()); 
-            this.mInterstitialAd.setAdListener(new GooglePage(this.container.$context())); 
+            mInterstitialAd = new InterstitialAd(container.$context()); 
+            mInterstitialAd.setAdListener(new GooglePage(container.$context())); 
             builder = new Builder(); 
-            if (!this.mInterstitialAd.isLoaded()) { 
-                this.mInterstitialAd.setAdUnitId(adUnitId); 
-                this.mInterstitialAd.loadAd(new Builder().build()); 
+            if (!mInterstitialAd.isLoaded()) { 
+                mInterstitialAd.setAdUnitId(adUnitId); 
+                mInterstitialAd.loadAd(new Builder().build()); 
             } 
     } 
  
@@ -520,7 +520,7 @@ public class AdmobAds extends AndroidViewComponent {
  
     @SimpleFunction(description = "Get the value True If Interstitial Ad Is Loaded") 
     public boolean isAdLoaded() { 
-        if (this.mInterstitialAd.isLoaded()) { 
+        if (mInterstitialAd.isLoaded()) { 
             return true; 
         } 
         return false; 
@@ -528,96 +528,96 @@ public class AdmobAds extends AndroidViewComponent {
  
     @SimpleFunction 
     public void ShowInterstitialAd() { 
-        if (this.mInterstitialAd.isLoaded()) { 
-            this.mInterstitialAd.show(); 
+        if (mInterstitialAd.isLoaded()) { 
+            mInterstitialAd.show(); 
             return; 
         } 
-        this.adFailedToLoadMessage = "Interstitial ad was not ready to be shown. Make sure you have set AdUnitId and you invoke this after LoadAd"; 
-        Log.d(LOG_TAG, this.adFailedToLoadMessage); 
-        InterstitialAdFailedToShow(this.adFailedToLoadMessage); 
+        adFailedToLoadMessage = "Interstitial ad was not ready to be shown. Make sure you have set AdUnitId and you invoke this after LoadAd"; 
+        Log.d(LOG_TAG, adFailedToLoadMessage); 
+        InterstitialAdFailedToShow(adFailedToLoadMessage); 
     } 
  
     @SimpleFunction 
     public void LoadRewardedAd(String adUnitId) { 
-            this.y++; 
-            if (this.y % 30 == 0) { 
-                this.mRewardedVideoAd = MobileAds.getRewardedVideoAdInstance(this.activity); 
-                this.mRewardedVideoAd.setRewardedVideoAdListener(new RewardedVideoAdListener() { 
+            y++; 
+            if (y % 30 == 0) { 
+                mRewardedVideoAd = MobileAds.getRewardedVideoAdInstance(activity); 
+                mRewardedVideoAd.setRewardedVideoAdListener(new RewardedVideoAdListener() { 
                     public void onRewarded(RewardItem reward) { 
-                        this.RewardedAdOnReward(reward.getType(), reward.getAmount()); 
+                        RewardedAdOnReward(reward.getType(), reward.getAmount()); 
                     } 
  
                     public void onRewardedVideoAdLeftApplication() { 
-                        this.RewardedAdLeftApplication(); 
+                        RewardedAdLeftApplication(); 
                     } 
  
                     public void onRewardedVideoAdClosed() { 
-                        this.RewardedAdClosed(); 
+                        RewardedAdClosed(); 
                     } 
  
                     public void onRewardedVideoAdFailedToLoad(int errorCode) { 
-                        this.RewardedAdFailedToLoad(errorCode); 
+                        RewardedAdFailedToLoad(errorCode); 
                     } 
  
                     public void onRewardedVideoAdLoaded() { 
-                        this.RewardedAdLoaded(); 
+                        RewardedAdLoaded(); 
                     } 
  
                     public void onRewardedVideoAdOpened() { 
-                        this.RewardedAdOpened(); 
+                        RewardedAdOpened(); 
                     } 
  
                     public void onRewardedVideoStarted() { 
-                        this.RewardedAdStarted(); 
+                        RewardedAdStarted(); 
                     } 
  
                     public void onRewardedVideoCompleted() { 
-                        this.RewardedAdCompleted(); 
+                        RewardedAdCompleted(); 
                     } 
                 }); 
-                this.mRewardedVideoAd.loadAd(this.adsUnitIdRewarded, new Builder().build()); 
+                mRewardedVideoAd.loadAd(adsUnitIdRewarded, new Builder().build()); 
                 return; 
             } 
-            this.mRewardedVideoAd = MobileAds.getRewardedVideoAdInstance(this.activity); 
-            this.mRewardedVideoAd.setRewardedVideoAdListener(new RewardedVideoAdListener() { 
+            mRewardedVideoAd = MobileAds.getRewardedVideoAdInstance(activity); 
+            mRewardedVideoAd.setRewardedVideoAdListener(new RewardedVideoAdListener() { 
                 public void onRewarded(RewardItem reward) { 
-                    this.RewardedAdOnReward(reward.getType(), reward.getAmount()); 
+                    RewardedAdOnReward(reward.getType(), reward.getAmount()); 
                 } 
  
                 public void onRewardedVideoAdLeftApplication() { 
-                    this.RewardedAdLeftApplication(); 
+                    RewardedAdLeftApplication(); 
                 } 
  
                 public void onRewardedVideoAdClosed() { 
-                    this.RewardedAdClosed(); 
+                    RewardedAdClosed(); 
                 } 
  
                 public void onRewardedVideoAdFailedToLoad(int errorCode) { 
-                    this.RewardedAdFailedToLoad(errorCode); 
+                    RewardedAdFailedToLoad(errorCode); 
                 } 
  
                 public void onRewardedVideoAdLoaded() { 
-                    this.RewardedAdLoaded(); 
+                    RewardedAdLoaded(); 
                 } 
  
                 public void onRewardedVideoAdOpened() { 
-                    this.RewardedAdOpened(); 
+                    RewardedAdOpened(); 
                 } 
  
                 public void onRewardedVideoStarted() { 
-                    this.RewardedAdStarted(); 
+                    RewardedAdStarted(); 
                 } 
  
                 public void onRewardedVideoCompleted() { 
-                    this.RewardedAdCompleted(); 
+                    RewardedAdCompleted(); 
                 } 
             }); 
-            this.mRewardedVideoAd.loadAd(adUnitId, new Builder().build()); 
+            mRewardedVideoAd.loadAd(adUnitId, new Builder().build()); 
     } 
  
     @SimpleFunction 
     public void ShowRewardedAd() { 
-        this.mRewardedVideoAd.show(); 
+        mRewardedVideoAd.show(); 
     } 
  
     @SimpleEvent(description = "Called when an an attempt was made to display the ad, but the ad was not ready to display") 
