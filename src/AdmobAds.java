@@ -35,7 +35,6 @@ import com.google.appinventor.components.runtime.Form;
 import com.google.appinventor.components.runtime.ReplForm; 
  
 @DesignerComponent(category = ComponentCategory.EXTENSION, description = "", iconName = "", nonVisible = true, version = 1) 
-@UsesLibraries
 @SimpleObject(external = true) 
 @UsesActivities(activities = {@ActivityElement(configChanges = "keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize", exported = "false", name = "com.google.android.gms.ads.AdActivity", theme = "@android:style/Theme.Translucent")}) 
 @UsesPermissions(permissionNames = "android.permission.INTERNET, android.permission.ACCESS_NETWORK_STATE") 
@@ -86,32 +85,32 @@ public class AdmobAds extends AndroidViewComponent {
  
         public void onAdClosed() { 
             Log.d("AdMobListener", "onAdClosed"); 
-            gads.this.InterstitialAdClosed(); 
+            this.InterstitialAdClosed(); 
         } 
  
         public void onAdFailedToLoad(int error) { 
-            Log.d("AdMobListener", "onAdFailedToLoad: " + gads.this.getErrorReason(error)); 
-            gads.this.adFailedToLoadMessage = gads.this.getErrorReason(error); 
-            gads.this.InterstitialAdFailedToLoad(error + gads.LOG_TAG, gads.this.getErrorReason(error)); 
+            Log.d("AdMobListener", "onAdFailedToLoad: " + this.getErrorReason(error)); 
+            this.adFailedToLoadMessage = this.getErrorReason(error); 
+            this.InterstitialAdFailedToLoad(error + gads.LOG_TAG, this.getErrorReason(error)); 
         } 
  
         public void onAdLeftApplication() { 
-            gads.this.InterstitialAdLeftApplication(); 
+            this.InterstitialAdLeftApplication(); 
         } 
  
         public void onAdLoaded() { 
             Log.d("AdMobListener", "onAdLoaded"); 
-            gads.this.InterstitialAdLoaded(); 
+            this.InterstitialAdLoaded(); 
         } 
  
         public void onAdOpened() { 
             Log.d("AdMobListener", "onAdOpened"); 
-            gads.this.InterstitialAdOpened(); 
+            this.InterstitialAdOpened(); 
         } 
  
         public void onAdClicked() { 
             Log.d("AdMobListener", "onAdClicked"); 
-            gads.this.InterstitialAdClicked(); 
+            this.InterstitialAdClicked(); 
         } 
     } 
  
@@ -143,27 +142,27 @@ public class AdmobAds extends AndroidViewComponent {
                 this.adView.setAdUnitId(this.adsUnitIdBanner); 
                 this.adView.setAdListener(new AdListener() { 
                     public void onAdLoaded() { 
-                        gads.this.BannerAdLoaded(); 
+                        this.BannerAdLoaded(); 
                     } 
  
                     public void onAdFailedToLoad(int errorCode) { 
-                        gads.this.BannerAdFailedToLoad(errorCode); 
+                        this.BannerAdFailedToLoad(errorCode); 
                     } 
  
                     public void onAdOpened() { 
-                        gads.this.BannerAdOpened(); 
+                        this.BannerAdOpened(); 
                     } 
  
                     public void onAdClicked() { 
-                        gads.this.BannerAdClicked(); 
+                        this.BannerAdClicked(); 
                     } 
  
                     public void onAdLeftApplication() { 
-                        gads.this.BannerAdLeftApplication(); 
+                        this.BannerAdLeftApplication(); 
                     } 
  
                     public void onAdClosed() { 
-                        gads.this.BannerAdClosed(); 
+                        this.BannerAdClosed(); 
                     } 
                 }); 
                 this.adRequest = new Builder().build(); 
@@ -180,27 +179,27 @@ public class AdmobAds extends AndroidViewComponent {
             this.adView.setAdUnitId(adUnitId); 
             this.adView.setAdListener(new AdListener() { 
                 public void onAdLoaded() { 
-                    gads.this.BannerAdLoaded(); 
+                    this.BannerAdLoaded(); 
                 } 
  
                 public void onAdFailedToLoad(int errorCode) { 
-                    gads.this.BannerAdFailedToLoad(errorCode); 
+                    this.BannerAdFailedToLoad(errorCode); 
                 } 
  
                 public void onAdOpened() { 
-                    gads.this.BannerAdOpened(); 
+                    this.BannerAdOpened(); 
                 } 
  
                 public void onAdClicked() { 
-                    gads.this.BannerAdClicked(); 
+                    this.BannerAdClicked(); 
                 } 
  
                 public void onAdLeftApplication() { 
-                    gads.this.BannerAdLeftApplication(); 
+                    this.BannerAdLeftApplication(); 
                 } 
  
                 public void onAdClosed() { 
-                    gads.this.BannerAdClosed(); 
+                    this.BannerAdClosed(); 
                 } 
             }); 
             this.adRequest = new Builder().build(); 
@@ -222,27 +221,27 @@ public class AdmobAds extends AndroidViewComponent {
                 this.adView.setAdUnitId(this.adsUnitIdBanner); 
                 this.adView.setAdListener(new AdListener() { 
                     public void onAdLoaded() { 
-                        gads.this.BannerAdLoaded(); 
+                        this.BannerAdLoaded(); 
                     } 
  
                     public void onAdFailedToLoad(int errorCode) { 
-                        gads.this.BannerAdFailedToLoad(errorCode); 
+                        this.BannerAdFailedToLoad(errorCode); 
                     } 
  
                     public void onAdOpened() { 
-                        gads.this.BannerAdOpened(); 
+                        this.BannerAdOpened(); 
                     } 
  
                     public void onAdClicked() { 
-                        gads.this.BannerAdClicked(); 
+                        this.BannerAdClicked(); 
                     } 
  
                     public void onAdLeftApplication() { 
-                        gads.this.BannerAdLeftApplication(); 
+                        this.BannerAdLeftApplication(); 
                     } 
  
                     public void onAdClosed() { 
-                        gads.this.BannerAdClosed(); 
+                        this.BannerAdClosed(); 
                     } 
                 }); 
                 this.adRequest = new Builder().build(); 
@@ -259,27 +258,27 @@ public class AdmobAds extends AndroidViewComponent {
             this.adView.setAdUnitId(adUnitId); 
             this.adView.setAdListener(new AdListener() { 
                 public void onAdLoaded() { 
-                    gads.this.BannerAdLoaded(); 
+                    this.BannerAdLoaded(); 
                 } 
  
                 public void onAdFailedToLoad(int errorCode) { 
-                    gads.this.BannerAdFailedToLoad(errorCode); 
+                    this.BannerAdFailedToLoad(errorCode); 
                 } 
  
                 public void onAdOpened() { 
-                    gads.this.BannerAdOpened(); 
+                    this.BannerAdOpened(); 
                 } 
  
                 public void onAdClicked() { 
-                    gads.this.BannerAdClicked(); 
+                    this.BannerAdClicked(); 
                 } 
  
                 public void onAdLeftApplication() { 
-                    gads.this.BannerAdLeftApplication(); 
+                    this.BannerAdLeftApplication(); 
                 } 
  
                 public void onAdClosed() { 
-                    gads.this.BannerAdClosed(); 
+                    this.BannerAdClosed(); 
                 } 
             }); 
             this.adRequest = new Builder().build(); 
@@ -301,27 +300,27 @@ public class AdmobAds extends AndroidViewComponent {
                 this.adView.setAdUnitId(this.adsUnitIdBanner); 
                 this.adView.setAdListener(new AdListener() { 
                     public void onAdLoaded() { 
-                        gads.this.BannerAdLoaded(); 
+                        this.BannerAdLoaded(); 
                     } 
  
                     public void onAdFailedToLoad(int errorCode) { 
-                        gads.this.BannerAdFailedToLoad(errorCode); 
+                        this.BannerAdFailedToLoad(errorCode); 
                     } 
  
                     public void onAdOpened() { 
-                        gads.this.BannerAdOpened(); 
+                        this.BannerAdOpened(); 
                     } 
  
                     public void onAdClicked() { 
-                        gads.this.BannerAdClicked(); 
+                        this.BannerAdClicked(); 
                     } 
  
                     public void onAdLeftApplication() { 
-                        gads.this.BannerAdLeftApplication(); 
+                        this.BannerAdLeftApplication(); 
                     } 
  
                     public void onAdClosed() { 
-                        gads.this.BannerAdClosed(); 
+                        this.BannerAdClosed(); 
                     } 
                 }); 
                 this.adRequest = new Builder().build(); 
@@ -338,27 +337,27 @@ public class AdmobAds extends AndroidViewComponent {
             this.adView.setAdUnitId(adUnitId); 
             this.adView.setAdListener(new AdListener() { 
                 public void onAdLoaded() { 
-                    gads.this.BannerAdLoaded(); 
+                    this.BannerAdLoaded(); 
                 } 
  
                 public void onAdFailedToLoad(int errorCode) { 
-                    gads.this.BannerAdFailedToLoad(errorCode); 
+                    this.BannerAdFailedToLoad(errorCode); 
                 } 
  
                 public void onAdOpened() { 
-                    gads.this.BannerAdOpened(); 
+                    this.BannerAdOpened(); 
                 } 
  
                 public void onAdClicked() { 
-                    gads.this.BannerAdClicked(); 
+                    this.BannerAdClicked(); 
                 } 
  
                 public void onAdLeftApplication() { 
-                    gads.this.BannerAdLeftApplication(); 
+                    this.BannerAdLeftApplication(); 
                 } 
  
                 public void onAdClosed() { 
-                    gads.this.BannerAdClosed(); 
+                    this.BannerAdClosed(); 
                 } 
             }); 
             this.adRequest = new Builder().build(); 
@@ -380,27 +379,27 @@ public class AdmobAds extends AndroidViewComponent {
                 this.adView.setAdUnitId(this.adsUnitIdBanner); 
                 this.adView.setAdListener(new AdListener() { 
                     public void onAdLoaded() { 
-                        gads.this.BannerAdLoaded(); 
+                        this.BannerAdLoaded(); 
                     } 
  
                     public void onAdFailedToLoad(int errorCode) { 
-                        gads.this.BannerAdFailedToLoad(errorCode); 
+                        this.BannerAdFailedToLoad(errorCode); 
                     } 
  
                     public void onAdOpened() { 
-                        gads.this.BannerAdOpened(); 
+                        this.BannerAdOpened(); 
                     } 
  
                     public void onAdClicked() { 
-                        gads.this.BannerAdClicked(); 
+                        this.BannerAdClicked(); 
                     } 
  
                     public void onAdLeftApplication() { 
-                        gads.this.BannerAdLeftApplication(); 
+                        this.BannerAdLeftApplication(); 
                     } 
  
                     public void onAdClosed() { 
-                        gads.this.BannerAdClosed(); 
+                        this.BannerAdClosed(); 
                     } 
                 }); 
                 this.adRequest = new Builder().build(); 
@@ -417,27 +416,27 @@ public class AdmobAds extends AndroidViewComponent {
             this.adView.setAdUnitId(adUnitId); 
             this.adView.setAdListener(new AdListener() { 
                 public void onAdLoaded() { 
-                    gads.this.BannerAdLoaded(); 
+                    this.BannerAdLoaded(); 
                 } 
  
                 public void onAdFailedToLoad(int errorCode) { 
-                    gads.this.BannerAdFailedToLoad(errorCode); 
+                    this.BannerAdFailedToLoad(errorCode); 
                 } 
  
                 public void onAdOpened() { 
-                    gads.this.BannerAdOpened(); 
+                    this.BannerAdOpened(); 
                 } 
  
                 public void onAdClicked() { 
-                    gads.this.BannerAdClicked(); 
+                    this.BannerAdClicked(); 
                 } 
  
                 public void onAdLeftApplication() { 
-                    gads.this.BannerAdLeftApplication(); 
+                    this.BannerAdLeftApplication(); 
                 } 
  
                 public void onAdClosed() { 
-                    gads.this.BannerAdClosed(); 
+                    this.BannerAdClosed(); 
                 } 
             }); 
             this.adRequest = new Builder().build(); 
@@ -545,35 +544,35 @@ public class AdmobAds extends AndroidViewComponent {
                 this.mRewardedVideoAd = MobileAds.getRewardedVideoAdInstance(this.activity); 
                 this.mRewardedVideoAd.setRewardedVideoAdListener(new RewardedVideoAdListener() { 
                     public void onRewarded(RewardItem reward) { 
-                        gads.this.RewardedAdOnReward(reward.getType(), reward.getAmount()); 
+                        this.RewardedAdOnReward(reward.getType(), reward.getAmount()); 
                     } 
  
                     public void onRewardedVideoAdLeftApplication() { 
-                        gads.this.RewardedAdLeftApplication(); 
+                        this.RewardedAdLeftApplication(); 
                     } 
  
                     public void onRewardedVideoAdClosed() { 
-                        gads.this.RewardedAdClosed(); 
+                        this.RewardedAdClosed(); 
                     } 
  
                     public void onRewardedVideoAdFailedToLoad(int errorCode) { 
-                        gads.this.RewardedAdFailedToLoad(errorCode); 
+                        this.RewardedAdFailedToLoad(errorCode); 
                     } 
  
                     public void onRewardedVideoAdLoaded() { 
-                        gads.this.RewardedAdLoaded(); 
+                        this.RewardedAdLoaded(); 
                     } 
  
                     public void onRewardedVideoAdOpened() { 
-                        gads.this.RewardedAdOpened(); 
+                        this.RewardedAdOpened(); 
                     } 
  
                     public void onRewardedVideoStarted() { 
-                        gads.this.RewardedAdStarted(); 
+                        this.RewardedAdStarted(); 
                     } 
  
                     public void onRewardedVideoCompleted() { 
-                        gads.this.RewardedAdCompleted(); 
+                        this.RewardedAdCompleted(); 
                     } 
                 }); 
                 this.mRewardedVideoAd.loadAd(this.adsUnitIdRewarded, new Builder().build()); 
@@ -582,35 +581,35 @@ public class AdmobAds extends AndroidViewComponent {
             this.mRewardedVideoAd = MobileAds.getRewardedVideoAdInstance(this.activity); 
             this.mRewardedVideoAd.setRewardedVideoAdListener(new RewardedVideoAdListener() { 
                 public void onRewarded(RewardItem reward) { 
-                    gads.this.RewardedAdOnReward(reward.getType(), reward.getAmount()); 
+                    this.RewardedAdOnReward(reward.getType(), reward.getAmount()); 
                 } 
  
                 public void onRewardedVideoAdLeftApplication() { 
-                    gads.this.RewardedAdLeftApplication(); 
+                    this.RewardedAdLeftApplication(); 
                 } 
  
                 public void onRewardedVideoAdClosed() { 
-                    gads.this.RewardedAdClosed(); 
+                    this.RewardedAdClosed(); 
                 } 
  
                 public void onRewardedVideoAdFailedToLoad(int errorCode) { 
-                    gads.this.RewardedAdFailedToLoad(errorCode); 
+                    this.RewardedAdFailedToLoad(errorCode); 
                 } 
  
                 public void onRewardedVideoAdLoaded() { 
-                    gads.this.RewardedAdLoaded(); 
+                    this.RewardedAdLoaded(); 
                 } 
  
                 public void onRewardedVideoAdOpened() { 
-                    gads.this.RewardedAdOpened(); 
+                    this.RewardedAdOpened(); 
                 } 
  
                 public void onRewardedVideoStarted() { 
-                    gads.this.RewardedAdStarted(); 
+                    this.RewardedAdStarted(); 
                 } 
  
                 public void onRewardedVideoCompleted() { 
-                    gads.this.RewardedAdCompleted(); 
+                    this.RewardedAdCompleted(); 
                 } 
             }); 
             this.mRewardedVideoAd.loadAd(adUnitId, new Builder().build()); 
