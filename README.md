@@ -2,7 +2,7 @@
 
 Open this link: https://github.com/new/import
 
-Paste https://github.com/userid/FacebookAds/ In the textbox asking for url of old repo.
+Paste https://github.com/DiegoBarrerio/FacebookAds/ In the textbox asking for url of old repo.
 
 Choose everything and click on begin import button.
 
